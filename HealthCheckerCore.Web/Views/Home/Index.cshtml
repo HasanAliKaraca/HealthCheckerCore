@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    @model MonitorConfigIndexViewModel
+}
+
+
+<p>
+    <h2>Monitor Configs</h2>
+    <a asp-action="Create" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span> New
+    </a>
+</p>
+
+<div class="container">
+
+    @if (Model.MonitorConfigs.Any())
+    {
+
+        @*<div class="esh-catalog-items row">
+                @foreach (var item in Model.MonitorConfigs)
+                {
+                    <div class="esh-catalog-item col-md-4">
+                        <partial name="_monitorConfig" model="item" />
+                    </div>
+                }
+            </div>*@
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        URL
+                    </th>
+                    <th>
+                        Monitoring Interval(second)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MonitorConfigs)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Interval)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-default btn-sm">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+
+                            <a data-id="@item.Id" class="btn btn-default btn-sm btnToDel">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <partial name="_pagination" for="PaginationInfo" />
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+    }
+    else
+    {
+        <div class="esh-catalog-items row">
+            To add a new monitor config use create button.
+        </div>
+    }
+</div>

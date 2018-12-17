@@ -1,0 +1,36 @@
+﻿@model PaginationInfoViewModel
+
+<nav>
+    <div class="d-flex justify-content-between">
+        <div>
+            @if (Model.ActualPage > 0)
+            {
+                <a id="Previous"
+                   asp-controller="Home"
+                   asp-action="Index"
+                   asp-route-page="@(Model.ActualPage - 1)"
+                   aria-label="Previous">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            }
+        </div>
+
+        <div>
+            Showing @Model.ItemsPerPage of @Model.TotalItems items - Page @(Model.ActualPage + 1) - @Model.TotalPages
+        </div>
+
+        <div>
+            @if (Model.TotalPages > Model.ActualPage + 1)
+            {
+                <a id="Next"
+                   asp-controller="Home"
+                   asp-action="Index"
+                   asp-route-page="@(Model.ActualPage + 1)"
+                   aria-label="Next">
+                    Next <i class="fa fa-chevron-right"></i>
+                </a>
+            }
+        </div>
+    </div>
+</nav>
+
