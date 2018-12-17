@@ -19,6 +19,7 @@
 - Async controllers and methods
 - Clean and simple ui
 - Pager used in data listing
+- Ef Code first approach used for creating db
 
 # Tech
 - Dotnetcore 2.2! 
