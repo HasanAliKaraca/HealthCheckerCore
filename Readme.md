@@ -2,9 +2,13 @@
 
 1) Open Package Manager Console,
 2) Select default project as:
+
     HealthCheckerCore.Infrastructure
+    
 3) Run the command:
+
     Update-Database
+    
 4) Enjoy!
 
 # Features
