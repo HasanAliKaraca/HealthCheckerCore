@@ -1,3 +1,5 @@
+![Screenshot](screenshot.png?raw=true "screenshot")
+
 # Installation
 
 1) Open Package Manager Console,
